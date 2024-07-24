@@ -1,0 +1,26 @@
+[
+  {
+    "user": "<user_id_1>",
+    "products": [
+      { "product": "<product_id_1>", "quantity": 1 },
+      { "product": "<product_id_2>", "quantity": 2 }
+    ],
+    "totalAmount": 2399.97,
+    "createdAt": "2024-07-01T10:00:00Z"
+  },
+  {
+    "user": "<user_id_2>",
+    "products": [
+      { "product": "<product_id_2>", "quantity": 1 },
+      { "product": "<product_id_3>", "quantity": 3 }
+    ],
+    "totalAmount": 1019.96,
+    "createdAt": "2024-07-05T15:30:00Z"
+  },
+  {
+    "user": "<user_id_3>",
+    "products": [{ "product": "<product_id_3>", "quantity": 2 }],
+    "totalAmount": 159.98,
+    "createdAt": "2024-07-10T08:45:00Z"
+  }
+]

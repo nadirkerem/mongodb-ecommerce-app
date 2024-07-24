@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Laptop",
+    "price": 999.99,
+    "description": "A high-performance laptop for all your computing needs.",
+    "category": "Electronics"
+  },
+  {
+    "name": "Smartphone",
+    "price": 699.99,
+    "description": "A latest-gen smartphone with all the modern features.",
+    "category": "Electronics"
+  },
+  {
+    "name": "Running Shoes",
+    "price": 79.99,
+    "description": "Comfortable and durable running shoes for everyday use.",
+    "category": "Sportswear"
+  }
+]
