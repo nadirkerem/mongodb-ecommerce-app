@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import connectDB from './config/db';
 import errorHandler from './middlewares/error-handler';
 
-import restaurantRoutes from './routes/restaurant-routes';
+import userRoutes from './routes/user-routes';
 
 dotenv.config();
 
@@ -16,9 +16,7 @@ app.use(express.json());
 
 connectDB();
 
-app.use('/api/restaurants', restaurantRoutes);
-// app.use('/api/cuisines', cuisineRoutes);
-// app.use('/api/boroughs', boroughRoutes);
+app.use('/api/user', userRoutes);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello, world!');

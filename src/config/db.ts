@@ -7,7 +7,7 @@ export default async function connectDB() {
   const MONGO_URI = process.env.MONGO_URI;
 
   const options = {
-    dbName: 'sample_restaurants',
+    dbName: 'sample_ecommerce',
   };
 
   try {
