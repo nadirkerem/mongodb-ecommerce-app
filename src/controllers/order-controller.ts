@@ -13,7 +13,12 @@ export async function getOrders(req: Request, res: Response): Promise<void> {
       .populate('products.product')
       .limit(limit)
       .skip(skip);
-    res.status(200).json(orders);
+
+    if (orders.length === 0) {
+      res.status(404).json({ message: 'No orders found' });
+    } else {
+      res.status(200).json(orders);
+    }
   } catch (error: any) {
     res.status(500).json({ message: error.message });
   }
@@ -130,6 +135,44 @@ export async function deleteOrder(req: Request, res: Response): Promise<void> {
       res.status(404).json({ message: 'Order not found' });
     } else {
       res.status(200).json({ message: 'Order deleted successfully' });
+    }
+  } catch (error: any) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
+export async function getOrdersByUserId(
+  req: Request,
+  res: Response
+): Promise<void> {
+  try {
+    const orders = await Order.find({ user: req.params.userId })
+      .populate('user')
+      .populate('products.product');
+    if (orders.length === 0) {
+      res.status(404).json({ message: 'No orders found for this user' });
+    } else {
+      res.status(200).json(orders);
+    }
+  } catch (error: any) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
+export async function getOrdersByProductId(
+  req: Request,
+  res: Response
+): Promise<void> {
+  try {
+    const orders = await Order.find({
+      'products.product': req.params.productId,
+    })
+      .populate('user')
+      .populate('products.product');
+    if (orders.length === 0) {
+      res.status(404).json({ message: 'No orders found for this product' });
+    } else {
+      res.status(200).json(orders);
     }
   } catch (error: any) {
     res.status(500).json({ message: error.message });
