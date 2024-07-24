@@ -5,6 +5,7 @@ interface IProduct extends Document {
   price: number;
   description: string;
   category: string;
+  userRating?: number;
 }
 
 const productSchema: Schema = new Schema({
@@ -18,6 +19,7 @@ const productSchema: Schema = new Schema({
     type: Number,
     required: [true, 'Price is required'],
     min: [0, 'Price must be a positive number'],
+    index: true,
   },
   description: {
     type: String,
@@ -34,6 +36,7 @@ const productSchema: Schema = new Schema({
     type: Number,
     min: [0, 'Rating must be between 0 and 5'],
     max: [5, 'Rating must be between 0 and 5'],
+    index: true,
   },
 });
 
