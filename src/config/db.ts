@@ -16,6 +16,8 @@ export default async function connectDB() {
     }
 
     await mongoose.connect(MONGO_URI, options);
+
+    console.log('Connected to the database.');
   } catch (error) {
     console.error('Error connecting to database: ', error);
     process.exit(1);
