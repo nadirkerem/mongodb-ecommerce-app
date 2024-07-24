@@ -6,7 +6,8 @@
     "start": "ts-node-dev src/index.ts",
     "build": "tsc",
     "serve": "node dist/index.js",
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon src/index.ts",
+    "populateData": "ts-node scripts/populateData.ts"
   },
   "keywords": [],
   "author": "",
