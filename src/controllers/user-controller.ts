@@ -3,7 +3,10 @@ import User from '../models/User';
 
 export async function getUsers(req: Request, res: Response): Promise<void> {
   try {
-    const users = await User.find();
+    const limit = parseInt(req.query.limit as string) || 20;
+    const skip = parseInt(req.query.skip as string) || 0;
+
+    const users = await User.find().skip(skip).limit(limit);
     res.status(200).json(users);
   } catch (error: any) {
     res.status(500).json({ message: error.message });
