@@ -1,26 +1,74 @@
 [
   {
-    "user": "<user_id_1>",
+    "user": "user_id_1",
     "products": [
-      { "product": "<product_id_1>", "quantity": 1 },
-      { "product": "<product_id_2>", "quantity": 2 }
+      { "product": "product_id_1", "quantity": 1 },
+      { "product": "product_id_2", "quantity": 2 }
     ],
     "totalAmount": 2399.97,
-    "createdAt": "2024-07-01T10:00:00Z"
+    "createdAt": "2023-01-01T10:00:00Z"
   },
   {
-    "user": "<user_id_2>",
+    "user": "user_id_2",
     "products": [
-      { "product": "<product_id_2>", "quantity": 1 },
-      { "product": "<product_id_3>", "quantity": 3 }
+      { "product": "product_id_2", "quantity": 1 },
+      { "product": "product_id_3", "quantity": 3 }
     ],
     "totalAmount": 1019.96,
-    "createdAt": "2024-07-05T15:30:00Z"
+    "createdAt": "2023-01-05T15:30:00Z"
   },
   {
-    "user": "<user_id_3>",
-    "products": [{ "product": "<product_id_3>", "quantity": 2 }],
+    "user": "user_id_3",
+    "products": [{ "product": "product_id_3", "quantity": 2 }],
     "totalAmount": 159.98,
-    "createdAt": "2024-07-10T08:45:00Z"
+    "createdAt": "2023-01-10T08:45:00Z"
+  },
+  {
+    "user": "user_id_4",
+    "products": [
+      { "product": "product_id_4", "quantity": 1 },
+      { "product": "product_id_5", "quantity": 1 }
+    ],
+    "totalAmount": 249.98,
+    "createdAt": "2023-01-15T12:00:00Z"
+  },
+  {
+    "user": "user_id_5",
+    "products": [{ "product": "product_id_5", "quantity": 2 }],
+    "totalAmount": 599.98,
+    "createdAt": "2023-01-20T09:30:00Z"
+  },
+  {
+    "user": "user_id_6",
+    "products": [{ "product": "product_id_6", "quantity": 1 }],
+    "totalAmount": 399.99,
+    "createdAt": "2023-01-25T14:15:00Z"
+  },
+  {
+    "user": "user_id_7",
+    "products": [{ "product": "product_id_7", "quantity": 3 }],
+    "totalAmount": 59.97,
+    "createdAt": "2023-01-30T16:00:00Z"
+  },
+  {
+    "user": "user_id_8",
+    "products": [{ "product": "product_id_8", "quantity": 2 }],
+    "totalAmount": 799.98,
+    "createdAt": "2023-02-01T10:30:00Z"
+  },
+  {
+    "user": "user_id_9",
+    "products": [
+      { "product": "product_id_9", "quantity": 1 },
+      { "product": "product_id_10", "quantity": 1 }
+    ],
+    "totalAmount": 169.98,
+    "createdAt": "2023-02-05T14:00:00Z"
+  },
+  {
+    "user": "user_id_10",
+    "products": [{ "product": "product_id_10", "quantity": 2 }],
+    "totalAmount": 299.98,
+    "createdAt": "2023-02-10T09:45:00Z"
   }
 ]

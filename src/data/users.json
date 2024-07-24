@@ -13,5 +13,40 @@
     "name": "Alice Johnson",
     "email": "alice.johnson@example.com",
     "password": "password789"
+  },
+  {
+    "name": "Bob Brown",
+    "email": "bob.brown@example.com",
+    "password": "password101"
+  },
+  {
+    "name": "Charlie Davis",
+    "email": "charlie.davis@example.com",
+    "password": "password202"
+  },
+  {
+    "name": "David Evans",
+    "email": "david.evans@example.com",
+    "password": "password303"
+  },
+  {
+    "name": "Eva Green",
+    "email": "eva.green@example.com",
+    "password": "password404"
+  },
+  {
+    "name": "Frank Harris",
+    "email": "frank.harris@example.com",
+    "password": "password505"
+  },
+  {
+    "name": "Grace Lee",
+    "email": "grace.lee@example.com",
+    "password": "password606"
+  },
+  {
+    "name": "Hank Miller",
+    "email": "hank.miller@example.com",
+    "password": "password707"
   }
 ]

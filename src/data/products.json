@@ -16,5 +16,47 @@
     "price": 79.99,
     "description": "Comfortable and durable running shoes for everyday use.",
     "category": "Sportswear"
+  },
+  {
+    "name": "Headphones",
+    "price": 199.99,
+    "description": "Noise-cancelling over-ear headphones.",
+    "category": "Electronics"
+  },
+  {
+    "name": "Backpack",
+    "price": 49.99,
+    "description": "A spacious and sturdy backpack for everyday use.",
+    "category": "Accessories"
+  },
+  {
+    "name": "Watch",
+    "price": 299.99,
+    "description": "A stylish and functional wristwatch.",
+    "category": "Accessories"
+  },
+  {
+    "name": "Gaming Console",
+    "price": 499.99,
+    "description": "A next-gen gaming console for the ultimate gaming experience.",
+    "category": "Electronics"
+  },
+  {
+    "name": "Tablet",
+    "price": 399.99,
+    "description": "A powerful tablet for work and play.",
+    "category": "Electronics"
+  },
+  {
+    "name": "Water Bottle",
+    "price": 19.99,
+    "description": "A reusable water bottle to keep you hydrated.",
+    "category": "Accessories"
+  },
+  {
+    "name": "Desk Chair",
+    "price": 149.99,
+    "description": "An ergonomic desk chair for comfortable seating.",
+    "category": "Furniture"
   }
 ]
