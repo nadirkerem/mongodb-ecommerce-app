@@ -5,8 +5,32 @@ export async function getProducts(req: Request, res: Response): Promise<void> {
   try {
     const limit = parseInt(req.query.limit as string) || 20;
     const skip = parseInt(req.query.skip as string) || 0;
+    const sortField = (req.query.sortField as string) || 'name';
+    const sortOrder = req.query.sortOrder === 'desc' ? -1 : 1;
 
-    const products = await Product.find().limit(limit).skip(skip);
+    const validSortFields = [
+      'name',
+      'price',
+      'description',
+      'category',
+      'userRating',
+    ];
+    if (!validSortFields.includes(sortField)) {
+      res.status(400).json({ message: 'Invalid sort field' });
+      return;
+    }
+
+    const validSortOrders = ['asc', 'desc'];
+    if (!validSortOrders.includes(req.query.sortOrder as string)) {
+      res.status(400).json({ message: 'Invalid sort order' });
+      return;
+    }
+
+    const products = await Product.find()
+      .sort({ [sortField]: sortOrder })
+      .limit(limit)
+      .skip(skip);
+
     res.status(200).json(products);
   } catch (error: any) {
     res.status(500).json({ message: error.message });

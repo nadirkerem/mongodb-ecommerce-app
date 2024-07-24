@@ -30,6 +30,11 @@ const productSchema: Schema = new Schema({
     minlength: [3, 'Category must be at least 3 characters long'],
     maxlength: [50, 'Category must be at most 50 characters long'],
   },
+  userRating: {
+    type: Number,
+    min: [0, 'Rating must be between 0 and 5'],
+    max: [5, 'Rating must be between 0 and 5'],
+  },
 });
 
 const Product = mongoose.model<IProduct>('Product', productSchema);
