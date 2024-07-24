@@ -1,8 +1,10 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+
 import User from '../src/models/User';
 import Product from '../src/models/Product';
 import Order from '../src/models/Order';
+
 import users from '../src/data/users.json';
 import products from '../src/data/products.json';
 import orders from '../src/data/orders.json';

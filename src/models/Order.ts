@@ -5,6 +5,7 @@ interface IOrder extends Document {
   products: { product: mongoose.Schema.Types.ObjectId; quantity: number }[];
   totalAmount: number;
   createdAt: Date;
+  status: 'Pending' | 'Shipped' | 'Delivered' | 'Cancelled';
 }
 
 const orderSchema: Schema = new Schema({
@@ -21,6 +22,11 @@ const orderSchema: Schema = new Schema({
   ],
   totalAmount: { type: Number, required: true },
   createdAt: { type: Date, default: Date.now },
+  status: {
+    type: String,
+    enum: ['Pending', 'Shipped', 'Delivered', 'Cancelled'],
+    default: 'Pending',
+  },
 });
 
 const Order = mongoose.model<IOrder>('Order', orderSchema);

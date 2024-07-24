@@ -2,9 +2,7 @@
 
 ## Description
 
-This project is developed as part of the Per Scholas Software Engineering Training program. It is a Node.js application built with Express and MongoDB (Mongoose). The application serves as an e-commerce API with functionality to manage users, products, and orders.
-
-The E-Commerce API is designed to handle typical e-commerce operations, including user management, product management, and order processing. This project includes various routes to perform CRUD operations on the application's collections. The database is populated with sample data for demonstration purposes.
+This project is developed as part of the Per Scholas Software Engineering Training program. It is a Node.js application built with Express and MongoDB (Mongoose). The application serves as an e-commerce API with functionality to manage users, products, and orders. The E-Commerce API is designed to handle typical e-commerce operations, including user management, product management, and order processing. This project includes various routes to perform CRUD operations on the application's collections. The database is populated with sample data for demonstration purposes.
 
 ## Features
 
@@ -91,8 +89,9 @@ The E-Commerce API is designed to handle typical e-commerce operations, includin
 - **GET /api/orders**: Get all orders.
   Optional Query Parameters:
 
-  - `sortOrder`: Sort order by date (asc or desc).
-  - `limit`: Limit the number of orders returned.
+  - `sortField`: Sort orders by date (createdAt), totalAmount, or status.
+  - `sortOrder`: Sort order (asc or desc).
+  - `limit`: Limit the number of orders returned by the query.
   - `skip`: Skip a number of orders.
 
 - **GET /api/orders/:id**: Get an order by ID.

@@ -7,10 +7,25 @@ export async function getOrders(req: Request, res: Response): Promise<void> {
   try {
     const limit = parseInt(req.query.limit as string) || 20;
     const skip = parseInt(req.query.skip as string) || 0;
+    const sortField = (req.query.sortField as string) || 'createdAt';
+    const sortOrder = req.query.sortOrder === 'desc' ? -1 : 1;
+
+    const validSortFields = ['createdAt', 'totalAmount', 'status'];
+    if (!validSortFields.includes(sortField)) {
+      res.status(400).json({ message: 'Invalid sort field' });
+      return;
+    }
+
+    const validSortOrders = ['asc', 'desc'];
+    if (!validSortOrders.includes(req.query.sortOrder as string)) {
+      res.status(400).json({ message: 'Invalid sort order' });
+      return;
+    }
 
     const orders = await Order.find()
       .populate('user')
       .populate('products.product')
+      .sort({ createdAt: sortOrder })
       .limit(limit)
       .skip(skip);
 
@@ -41,12 +56,12 @@ export async function getOrderById(req: Request, res: Response): Promise<void> {
 }
 
 export async function createOrder(req: Request, res: Response): Promise<void> {
-  const { user, products, totalAmount } = req.body;
+  const { user, products, totalAmount, status } = req.body;
 
-  if (!user || !products || !totalAmount) {
-    res
-      .status(400)
-      .json({ message: 'User, products, and totalAmount are required' });
+  if (!user || !products || !totalAmount || !status) {
+    res.status(400).json({
+      message: 'User, products, totalAmount, and status are required',
+    });
     return;
   }
 
@@ -76,11 +91,12 @@ export async function createOrder(req: Request, res: Response): Promise<void> {
 }
 
 export async function updateOrder(req: Request, res: Response): Promise<void> {
-  const { user, products, totalAmount } = req.body;
+  const { user, products, totalAmount, status } = req.body;
 
-  if (!user && !products && !totalAmount) {
+  if (!user && !products && !totalAmount && !status) {
     res.status(400).json({
-      message: 'At least one of user, products, or totalAmount is required',
+      message:
+        'At least one of user, products, totalAmount, or status is required',
     });
     return;
   }
