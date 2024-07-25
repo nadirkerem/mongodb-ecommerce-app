@@ -1,6 +1,8 @@
 import mongoose, { Schema, Document } from 'mongoose';
 import validator from 'validator';
 
+import Order from './Order';
+
 interface IUser extends Document {
   name: string;
   email: string;
@@ -29,6 +31,19 @@ const userSchema: Schema = new Schema({
     minlength: [6, 'Password must be at least 6 characters long'],
   },
 });
+
+userSchema.pre<IUser>(
+  'deleteOne',
+  { document: true, query: false },
+  async function (next) {
+    try {
+      await Order.deleteMany({ user: this._id });
+      next();
+    } catch (error: any) {
+      next(error);
+    }
+  }
+);
 
 const User = mongoose.model<IUser>('User', userSchema);
 

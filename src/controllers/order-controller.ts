@@ -162,6 +162,12 @@ export async function getOrdersByUserId(
   res: Response
 ): Promise<void> {
   try {
+    const userExists = await User.findById(req.params.userId);
+    if (!userExists) {
+      res.status(400).json({ message: 'Invalid user ID' });
+      return;
+    }
+
     const orders = await Order.find({ user: req.params.userId })
       .populate('user')
       .populate('products.product');
@@ -180,6 +186,12 @@ export async function getOrdersByProductId(
   res: Response
 ): Promise<void> {
   try {
+    const productExists = await Product.findById(req.params.productId);
+    if (!productExists) {
+      res.status(400).json({ message: 'Invalid product ID' });
+      return;
+    }
+
     const orders = await Order.find({
       'products.product': req.params.productId,
     })

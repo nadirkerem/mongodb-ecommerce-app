@@ -163,13 +163,13 @@ export async function deleteProduct(
   res: Response
 ): Promise<void> {
   try {
-    const deletedProduct = await Product.findByIdAndDelete(req.params.id);
-
-    if (!deletedProduct) {
+    const product = await Product.findById(req.params.id);
+    if (!product) {
       res.status(404).json({ message: 'Product not found' });
-    } else {
-      res.status(200).json({ message: 'Product deleted successfully' });
+      return;
     }
+    await product.deleteOne();
+    res.status(200).json({ message: 'Product and associated orders deleted' });
   } catch (error: any) {
     res.status(500).json({ message: error.message });
   }

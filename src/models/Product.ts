@@ -1,5 +1,7 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
+import Order from './Order';
+
 interface IProduct extends Document {
   name: string;
   price: number;
@@ -39,6 +41,19 @@ const productSchema: Schema = new Schema({
     index: true,
   },
 });
+
+productSchema.pre<IProduct>(
+  'deleteOne',
+  { document: true, query: false },
+  async function (next) {
+    try {
+      await Order.deleteMany({ 'products.product': this._id });
+      next();
+    } catch (error: any) {
+      next(error);
+    }
+  }
+);
 
 const Product = mongoose.model<IProduct>('Product', productSchema);
 
